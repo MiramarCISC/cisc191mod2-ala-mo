@@ -21,24 +21,24 @@ public class StudentAnalyzer implements StudentFilter {
         List<Student> defensiveCopy = new ArrayList<>(students);
         
         Collections.sort(defensiveCopy,
-            Comparator.comparing(Student::getGPA).reversed()
+            Comparator.comparing(Student::getGpa).reversed()
                 .thenComparing(Student::getName)
         );
         // return defensiveCopy;
     }
     
     // retrieving average GPA
-    static double averageGPA(List<Student> students) {
+    static double averageGpa(List<Student> students) {
         if (students.isEmpty()) {
             return 0.0;
         }
         
-        double gettingAvgGPA = 0.0;
+        double gettingAvgGpa = 0.0;
         for (Student s : students) {
-            gettingAvgGPA += s.getGPA();
+            gettingAvgGpa += s.getGpa();
         }
-        gettingAvgGPA = gettingAvgGPA / students.size();
-        return gettingAvgGPA;
+        gettingAvgGpa = gettingAvgGpa / students.size();
+        return gettingAvgGpa;
     }
     
     // overriding method from interface

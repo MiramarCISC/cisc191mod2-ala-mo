@@ -20,9 +20,9 @@ public class Student {
     // field getters
     public String getName() { return name; }
     
-    public double getGPA() { return gpa; }
+    public double getGpa() { return gpa; }
     
-    public int getID() { return id; }
+    public int getId() { return id; }
     
     // toString() override
     @Override

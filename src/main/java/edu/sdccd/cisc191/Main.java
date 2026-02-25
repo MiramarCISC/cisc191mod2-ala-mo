@@ -37,7 +37,7 @@ public class Main implements StudentFilter {
         StudentAnalyzer.sort(sortedRoster, new Comparator<Student>() {
             @Override
             public int compare(Student s1, Student s2) {
-                return Double.compare(s2.getGPA(), s1.getGPA());
+                return Double.compare(s2.getGpa(), s1.getGpa());
             }
         });
 
@@ -47,7 +47,7 @@ public class Main implements StudentFilter {
             System.out.println("-" + sortedRoster.get(i));
         }
         System.out.println("\nAverage GPA of Roster: ");
-        System.out.print(String.format("%.2f", StudentAnalyzer.averageGPA(roster)));
+        System.out.print(String.format("%.2f", StudentAnalyzer.averageGpa(roster)));
     }
      // overriding interface method
     @Override
