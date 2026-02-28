@@ -1,4 +1,6 @@
 package edu.sdccd.cisc191;
 
-public class StudentFilter {
-}
+    @FunctionalInterface
+    public interface StudentFilter {
+        boolean test(Student s);
+    }
