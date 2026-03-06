@@ -29,23 +29,42 @@ public class Main implements StudentFilter {
         }
 
         // demonstrating filtering
+
+        /*
+        This roster never get printed. You should also use a lambda and avoid having Main
+        implement StudentFilter.
+        */
         StudentFilter filter = new Main();
         roster = StudentAnalyzer.filter(roster, filter);
         
         // demonstrating sorting
         List<Student> sortedRoster = new ArrayList<>(roster);
         StudentAnalyzer.sort(sortedRoster, new Comparator<Student>() {
+            /*Avoid not using the things required for the class and
+            writing your own solution in Main, as you should be passing a lambda into this.
+            Instead, you should do something like this:
+
+             List<Student> sortedRoster = new ArrayList<>(studentList);
+
+             Comparator<Student> comparatorS =
+                    Comparator.comparingDouble(Student::getGpa).reversed()
+                    .thenComparing(Student::getName);
+
+            StudentAnalyzer.sort(sortedList, comparatorS);
+            * */
             @Override
             public int compare(Student s1, Student s2) {
                 return Double.compare(s2.getGpa(), s1.getGpa());
             }
         });
 
-        // printing average GPA
+
         System.out.println("Roster: ");
         for (int i = 0; i < sortedRoster.size(); i++) {
             System.out.println("-" + sortedRoster.get(i));
         }
+
+        // printing average GPA
         System.out.println("\nAverage GPA of Roster: ");
         System.out.print(String.format("%.2f", StudentAnalyzer.averageGpa(roster)));
     }

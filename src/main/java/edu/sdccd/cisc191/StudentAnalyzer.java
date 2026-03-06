@@ -7,7 +7,6 @@ public class StudentAnalyzer implements StudentFilter {
     // filtering through students
     static List<Student> filter(List<Student> students, StudentFilter filter) {
         List<Student> newArray = new ArrayList<>();
-        
         for (Student s : students) {
             if (filter.test(s)) {
                 newArray.add(s);
@@ -17,6 +16,18 @@ public class StudentAnalyzer implements StudentFilter {
     }
     
     // sorting students
+
+    /*
+    * This method returns nothing and does not follow the requirements. While the
+    * defensive copy is a very smart choice to ensure nothing goes wrong, it
+    * needs to be returned to affect the list. With your current method you also wouldn't let
+    *  the sorting method be chosen with a lambda, as you don't implement comparator.
+    * Instead, you should do something like this:
+    *
+    * static void sort(List<Student> list, Comparator<Student> comp) {
+        list.sort(comp);
+      }
+    * */
     static void sort(List<Student> students, Comparator<Student> comparator) {
         List<Student> defensiveCopy = new ArrayList<>(students);
         
@@ -32,7 +43,11 @@ public class StudentAnalyzer implements StudentFilter {
         if (students.isEmpty()) {
             return 0.0;
         }
-        
+
+        /*
+        * gettingAvgGpa doesn't follow Java standard style, something like totalGpa might
+        * be more appropriate.
+        */
         double gettingAvgGpa = 0.0;
         for (Student s : students) {
             gettingAvgGpa += s.getGpa();
